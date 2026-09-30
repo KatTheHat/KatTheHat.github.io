@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kate Li | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f6fc;
+      --card: #ffffff;
+      --ink: #26243a;
+      --muted: #625f7a;
+      --accent: #6c5dd3;
+      --accent-2: #e58bb4;
+      --accent-soft: #eeebfb;
+      --line: #e4e1f2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Navigation */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(247, 246, 252, 0.95);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 960px; margin: 0 auto; padding: 14px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+    .nav-links a { color: var(--muted); margin-left: 22px; font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      max-width: 960px; margin: 0 auto; padding: 70px 20px 60px;
+      display: flex; align-items: center; gap: 44px;
+    }
+    .photo-wrap {
+      flex-shrink: 0; width: 190px; height: 190px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Fraunces", Georgia, serif; font-size: 3.2rem; font-weight: 700;
+      overflow: hidden; border: 5px solid #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .photo-wrap { position: relative; }
+    .photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .eyebrow { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; }
+    h1 { font-family: "Fraunces", Georgia, serif; font-size: 2.8rem; line-height: 1.15; margin: 6px 0 16px; }
+    .statement { font-size: 1.2rem; color: var(--muted); max-width: 560px; }
+    .hero-buttons { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+      border: 2px solid var(--accent);
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; }
+    .btn-secondary { color: var(--accent); background: transparent; }
+    .btn:hover { text-decoration: none; opacity: 0.88; }
+
+    /* Sections */
+    section { max-width: 960px; margin: 0 auto; padding: 50px 20px; }
+    h2 {
+      font-family: "Fraunces", Georgia, serif; font-size: 2rem; margin-bottom: 26px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+    .skill-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+    .skill-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: var(--accent-soft); color: var(--accent); padding: 5px 12px; border-radius: 999px; font-size: 0.87rem; font-weight: 500; }
+
+    /* Projects */
+    .projects { display: grid; gap: 20px; }
+    .project {
+      background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent-2);
+      border-radius: 12px; padding: 26px;
+    }
+    .project-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .project h3 { font-size: 1.25rem; }
+    .project-meta { color: var(--muted); font-size: 0.88rem; }
+    .project p { margin: 12px 0; color: var(--ink); }
+    .project .tags { margin-bottom: 14px; }
+    .project-link { font-weight: 600; font-size: 0.95rem; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 40px 20px; margin-top: 30px;
+      border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem;
+    }
+
+    /* Phones */
+    @media (max-width: 700px) {
+      .hero { flex-direction: column; text-align: center; padding-top: 44px; }
+      .hero-buttons { justify-content: center; }
+      .statement { margin: 0 auto; }
+      h1 { font-size: 2.2rem; }
+      .nav-links a { margin-left: 14px; font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="logo">Kate Li</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PERSONAL STATEMENT -->
+  <header class="hero" id="about">
+    <div class="photo-wrap">
+      <span>KL</span>
+      <img src="headshot.jpg" alt="Headshot of Kate Li" onerror="this.remove()">
+    </div>
+    <div>
+      <p class="eyebrow">Rutgers Business School · Supply Chain Management</p>
+      <h1>Hi, I'm Kate Li.</h1>
+      <p class="statement">
+        I'm a Rutgers Business School supply chain student who pairs consulting and operations
+        thinking with hands-on AI building to turn messy business problems into practical solutions.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#projects">See My Projects</a>
+        <a class="btn btn-secondary" href="https://github.com/KatTheHat" target="_blank">GitHub Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Supply Chain &amp; Business</h3>
+        <div class="tags">
+          <span class="tag">Demand Planning</span>
+          <span class="tag">Fulfillment</span>
+          <span class="tag">Project Management</span>
+          <span class="tag">Industry Research</span>
+          <span class="tag">Statistical Analysis</span>
+          <span class="tag">Business Ethics</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Technical &amp; AI</h3>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Retrieval-Augmented Generation (RAG)</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">Embedding Pipelines</span>
+          <span class="tag">Document Parsing</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Git &amp; GitHub</span>
+          <span class="tag">Excel</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Professional</h3>
+        <div class="tags">
+          <span class="tag">Client Consulting</span>
+          <span class="tag">Public Speaking</span>
+          <span class="tag">Persuasive Writing</span>
+          <span class="tag">Policy Advocacy</span>
+          <span class="tag">Team Collaboration</span>
+          <span class="tag">Digital Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-top">
+          <h3>RAG Sales Bot</h3>
+          <span class="project-meta">Python · Team of 2</span>
+        </div>
+        <p>
+          Built an AI sales assistant from scratch that answers questions using a company's own documents.
+          The system parses source files, turns them into embeddings, stores them in a ChromaDB vector
+          database, and retrieves the most relevant passages to ground each answer. We also designed
+          evaluation metrics to measure answer quality and managed the codebase with a Git/GitHub workflow.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">ChromaDB</span><span class="tag">LLMs</span><span class="tag">Evaluation</span>
+        </div>
+        <a class="project-link" href="https://github.com/KatTheHat" target="_blank">View code on GitHub →</a>
+      </article>
+
+      <article class="project">
+        <div class="project-top">
+          <h3>New Jersey Blueberry Industry Consulting Engagement</h3>
+          <span class="project-meta">Fall 2026 · Team 12</span>
+        </div>
+        <p>
+          Member of a student consulting team on a 14-week applied engagement for the Rutgers Center for
+          Local Supply Chain Resiliency and the NJ Supply Chain Network (NJSCN), analyzing New Jersey's
+          blueberry industry. The team delivers weekly findings through a 25-tab Executive Intelligence
+          Workbook covering the industry's supply chain, market conditions, and strategic recommendations.
+        </p>
+        <div class="tags">
+          <span class="tag">Supply Chain Analysis</span><span class="tag">Market Research</span><span class="tag">Consulting</span>
+        </div>
+        <span class="project-meta">Rutgers Business School, course 33:799:440 · Faculty advisor: Kevin Lyons, Ph.D.</span>
+      </article>
+
+      <article class="project">
+        <div class="project-top">
+          <h3>LLM-Ready Company Knowledge Wiki</h3>
+          <span class="project-meta">In progress</span>
+        </div>
+        <p>
+          Building a downloadable company wiki that anyone can load into their own AI assistant to ask
+          questions about the business. I convert raw company documents into clean, structured text with
+          the MinerU document parser and organize them with the LLM Wiki desktop app, so the knowledge is
+          easy for both people and AI models to search.
+        </p>
+        <div class="tags">
+          <span class="tag">MinerU</span><span class="tag">Knowledge Management</span><span class="tag">AI Tools</span>
+        </div>
+        <a class="project-link" href="https://github.com/KatTheHat" target="_blank">Follow progress on GitHub →</a>
+      </article>
+
+      <article class="project">
+        <div class="project-top">
+          <h3>The Borgen Project: Political Ambassador</h3>
+          <span class="project-meta">Global Poverty Advocacy · Current</span>
+        </div>
+        <p>
+          As a Political Ambassador for The Borgen Project, a national nonprofit fighting global poverty,
+          I lobby members of Congress to support poverty-reduction legislation. I research and maintain
+          policy profiles on Arizona's congressional delegation, including Sen. Mark Kelly, Sen. Ruben Gallego,
+          and Rep. Andy Biggs, and run weekly outreach to their offices. I also wrote and submitted a letter
+          to the editor urging Arizona's senators to act, and scripted and produced a video advocacy message
+          to Sen. Gallego.
+        </p>
+        <div class="tags">
+          <span class="tag">Congressional Outreach</span><span class="tag">Policy Research</span><span class="tag">Persuasive Writing</span><span class="tag">Video</span>
+        </div>
+        <a class="project-link" href="https://borgenproject.org" target="_blank">About The Borgen Project →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Kate Li · <a href="https://github.com/KatTheHat" target="_blank">github.com/KatTheHat</a>
+  </footer>
+
+</body>
+</html>
